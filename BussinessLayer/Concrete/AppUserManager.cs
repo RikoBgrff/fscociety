@@ -1,4 +1,5 @@
 ﻿using BussinessLayer.Abstract;
+using DataAccessLayer.Abstract;
 using EntityLayer.Entities;
 using System;
 using System.Collections.Generic;
@@ -10,29 +11,36 @@ namespace BussinessLayer.Concrete
 {
     public class AppUserManager : IAppUserService
     {
+        readonly IAppUserDal appUserDal;
+
+        public AppUserManager(IAppUserDal appUserDal)
+        {
+            this.appUserDal = appUserDal;
+        }
+
         public void AppUserAdd(AppUser user)
         {
-            throw new NotImplementedException();
+            appUserDal.Insert(user);
         }
 
         public void AppUserRemove(AppUser user)
         {
-            throw new NotImplementedException();
+            appUserDal.Delete(user);
         }
 
         public void AppUserUpdate(AppUser user)
         {
-            throw new NotImplementedException();
+            appUserDal.Update(user);
         }
 
         public AppUser GetById(int id)
         {
-            throw new NotImplementedException();
+            return appUserDal.GetById(id);
         }
 
         public List<AppUser> GetList()
         {
-            throw new NotImplementedException();
+            return appUserDal.GetAll();
         }
     }
 }

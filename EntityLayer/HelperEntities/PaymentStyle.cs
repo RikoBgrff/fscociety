@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-namespace EntityLayer.Entities
-{
-    public class Category:Entity
-    {
-        public string Description { get; set; }
 
+namespace EntityLayer.HelperEntities
+{
+    public enum PaymentStyle
+    {
+        Hourly=0,Monthly=1,BySolvedTasksNumber=2
     }
 }

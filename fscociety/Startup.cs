@@ -28,9 +28,11 @@ namespace fscociety
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("fsocietyDb")));
-            services.AddIdentity<AppUser, AppRole>()
-                  .AddEntityFrameworkStores<ApplicationDbContext>()
-                  .AddDefaultTokenProviders();
+            //services.AddIdentity<AppUser, AppRole>()
+                  //.AddEntityFrameworkStores<ApplicationDbContext>()
+                  //.AddDefaultTokenProviders();
+            services.AddRazorPages();
+            services.AddMvc();
             services.AddControllersWithViews();
         }
 
@@ -59,6 +61,7 @@ namespace fscociety
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
             });
         }
     }

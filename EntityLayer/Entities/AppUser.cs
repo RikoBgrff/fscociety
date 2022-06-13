@@ -21,6 +21,7 @@ namespace EntityLayer.Entities
         public int Age { get; set; }
         public List<Post> LikedPosts { get; set; }
         public bool Status { get; set; }
+         
 
     }
 }
